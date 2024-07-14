@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Carousel</title>
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+        }
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-image {
+            min-width: 25%;
+            box-sizing: border-box;
+        }
+        .carousel-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .dot-container {
+            text-align: center;
+            position: absolute;
+            width: 100%;
+            bottom: 55px;
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            border: 2px solid #bbb; /* Add this line for outline */
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active {
+            background-color: #717171;
+        }
+        .autoplay-container {
+            text-align: left;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        .autoplay-container label {
+            margin-right: 10px;
+        }
+        .caption-container {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="autoplay-container" style="width: 100%; margin-bottom: 0;">
+        <label for="autoplay">Auto Play</label>
+        <input type="checkbox" id="autoplay" checked>
+    </div>
+    <div class="content has-text-justified" style="width: 100%; margin-bottom: 0;">
+            <table style="width: 100%; table-layout: fixed; margin-bottom: 0;">
+                <tr>
+                  <td align="center"  valign="middle">
+                    <p>Input</p>
+                  </td>
+                  <td align="center" valign="middle">
+                    <p>Albedo</p>
+                  </td>
+                  <td align="center"   valign="middle">
+                    <p>Shading</p>
+                  </td>
+                  <td align="center" valign="middle">
+                    <p>Surface Normal</p>
+                  </td>
+                </tr>
+            </table>
+    </div>
+    <div class="carousel-container" id="carousel1">
+        <div class="carousel-slide">
+            <div class="carousel-image"><a href="./static/figures/samples/Alen%20Kajtezovic%20-d5aIXRApA4k-unsplash_input.png" target="_blank"><img src="./static/figures/samples/Alen%20Kajtezovic%20-d5aIXRApA4k-unsplash_input.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Alen%20Kajtezovic%20-d5aIXRApA4k-unsplash_r.png" target="_blank"><img src="./static/figures/samples/Alen%20Kajtezovic%20-d5aIXRApA4k-unsplash_r.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Alen%20Kajtezovic%20-d5aIXRApA4k-unsplash_s.png" target="_blank"><img src="./static/figures/samples/Alen%20Kajtezovic%20-d5aIXRApA4k-unsplash_s.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Alen%20Kajtezovic%20-d5aIXRApA4k-unsplash_n.png" target="_blank"><img src="./static/figures/samples/Alen%20Kajtezovic%20-d5aIXRApA4k-unsplash_n.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Andrea%20Davis-k8WL83m48XY-unsplash_input.png" target="_blank"><img src="./static/figures/samples/Andrea%20Davis-k8WL83m48XY-unsplash_input.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Andrea%20Davis-k8WL83m48XY-unsplash_r.png" target="_blank"><img src="./static/figures/samples/Andrea%20Davis-k8WL83m48XY-unsplash_r.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Andrea%20Davis-k8WL83m48XY-unsplash_s.png" target="_blank"><img src="./static/figures/samples/Andrea%20Davis-k8WL83m48XY-unsplash_s.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Andrea%20Davis-k8WL83m48XY-unsplash_n.png" target="_blank"><img src="./static/figures/samples/Andrea%20Davis-k8WL83m48XY-unsplash_n.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Luiz%20Felipe-VdTbPlH5Zio-unsplash_input.png" target="_blank"><img src="./static/figures/samples/Luiz%20Felipe-VdTbPlH5Zio-unsplash_input.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Luiz%20Felipe-VdTbPlH5Zio-unsplash_r.png" target="_blank"><img src="./static/figures/samples/Luiz%20Felipe-VdTbPlH5Zio-unsplash_r.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Luiz%20Felipe-VdTbPlH5Zio-unsplash_s.png" target="_blank"><img src="./static/figures/samples/Luiz%20Felipe-VdTbPlH5Zio-unsplash_s.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Luiz%20Felipe-VdTbPlH5Zio-unsplash_n.png" target="_blank"><img src="./static/figures/samples/Luiz%20Felipe-VdTbPlH5Zio-unsplash_n.png" alt="Image"></a></div>
+        </div>
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+<!--        <div class="caption-container" id="carousel-caption1"> Image source: Alen Kajtezovic, Unsplash; Andrea Davis, Unsplash; Luiz  Felipe, Unsplash </div>-->
+        <div class="content has-text-justified" style="width: 100%; margin-bottom: 0;">
+             <p style="font-size: 0.75em;" >Image source:
+                     <a href="https://unsplash.com/photos/brown-leather-couch-beside-green-potted-plant-d5aIXRApA4k" target="_blank" style="text-decoration: none">
+                         Alen Kajtezovic</a>,
+                    <a href="https://unsplash.com/photos/white-couch-near-brown-wooden-door-k8WL83m48XY" target="_blank" style="text-decoration: none">
+                        Andrea Davis</a>,
+                    <a href="https://unsplash.com/photos/white-textile-VdTbPlH5Zio" target="_blank" style="text-decoration: none">
+                        Luiz  Felipe</a>
+                 (Unsplash)
+                </p>
+        </div>
+    </div>
+
+    <div class="carousel-container" id="carousel2">
+        <div class="carousel-slide">
+            <div class="carousel-image"><a href="./static/figures/samples/ASIA%20CULTURECENTER%20-COWf-5ZtZ6w-unsplash_input.png" target="_blank"><img src="./static/figures/samples/ASIA%20CULTURECENTER%20-COWf-5ZtZ6w-unsplash_input.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/ASIA%20CULTURECENTER%20-COWf-5ZtZ6w-unsplash_r.png" target="_blank"><img src="./static/figures/samples/ASIA%20CULTURECENTER%20-COWf-5ZtZ6w-unsplash_r.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/ASIA%20CULTURECENTER%20-COWf-5ZtZ6w-unsplash_s.png" target="_blank"><img src="./static/figures/samples/ASIA%20CULTURECENTER%20-COWf-5ZtZ6w-unsplash_s.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/ASIA%20CULTURECENTER%20-COWf-5ZtZ6w-unsplash_n.png" target="_blank"><img src="./static/figures/samples/ASIA%20CULTURECENTER%20-COWf-5ZtZ6w-unsplash_n.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/bed_Di_An_h_input.png" target="_blank"><img src="./static/figures/samples/bed_Di_An_h_input.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/bed_Di_An_h_r.png" target="_blank"><img src="./static/figures/samples/bed_Di_An_h_r.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/bed_Di_An_h_s.png" target="_blank"><img src="./static/figures/samples/bed_Di_An_h_s.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/bed_Di_An_h_n.png" target="_blank"><img src="./static/figures/samples/bed_Di_An_h_n.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Felix%20Mooneeram-evlkOfkQ5rE-unsplash_input.png" target="_blank"><img src="./static/figures/samples/Felix%20Mooneeram-evlkOfkQ5rE-unsplash_input.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Felix%20Mooneeram-evlkOfkQ5rE-unsplash_r.png" target="_blank"><img src="./static/figures/samples/Felix%20Mooneeram-evlkOfkQ5rE-unsplash_r.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Felix%20Mooneeram-evlkOfkQ5rE-unsplash_s.png" target="_blank"><img src="./static/figures/samples/Felix%20Mooneeram-evlkOfkQ5rE-unsplash_s.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Felix%20Mooneeram-evlkOfkQ5rE-unsplash_n.png" target="_blank"><img src="./static/figures/samples/Felix%20Mooneeram-evlkOfkQ5rE-unsplash_n.png" alt="Image"></a></div>
+        </div>
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+<!--        <div class="caption-container" id="carousel-caption2"> 123 </div>-->
+        <div class="content has-text-justified" style="width: 100%; margin-bottom: 0;">
+             <p style="font-size: 0.75em;">Image source:
+                    <a href="https://unsplash.com/photos/black-chairs-on-white-floor-COWf-5ZtZ6w" target="_blank" style="text-decoration: none">
+                     ASIA CULTURECENTER</a>,
+                    <a href="https://unsplash.com/photos/turned-on-desk-lamp-ZyXBmcdOLsc" target="_blank" style="text-decoration: none">
+                        Di_An_h</a>,
+                    <a href="https://unsplash.com/photos/red-cinema-chair-evlkOfkQ5rE" target="_blank" style="text-decoration: none">
+                        Felix Mooneeram</a>
+                (Unsplash)
+             </p>
+        </div>
+    </div>
+
+    <div class="carousel-container" id="carousel3">
+        <div class="carousel-slide">
+            <div class="carousel-image"><a href="./static/figures/samples/Ion%20Fet-C4G18Paw0d4-unsplash_input.png" target="_blank"><img src="./static/figures/samples/Ion%20Fet-C4G18Paw0d4-unsplash_input.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Ion%20Fet-C4G18Paw0d4-unsplash_r.png" target="_blank"><img src="./static/figures/samples/Ion%20Fet-C4G18Paw0d4-unsplash_r.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Ion%20Fet-C4G18Paw0d4-unsplash_s.png" target="_blank"><img src="./static/figures/samples/Ion%20Fet-C4G18Paw0d4-unsplash_s.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Ion%20Fet-C4G18Paw0d4-unsplash_n.png" target="_blank"><img src="./static/figures/samples/Ion%20Fet-C4G18Paw0d4-unsplash_n.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Ivan%20Aleksic-PDRFeeDniCk-unsplash_input.png" target="_blank"><img src="./static/figures/samples/Ivan%20Aleksic-PDRFeeDniCk-unsplash_input.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Ivan%20Aleksic-PDRFeeDniCk-unsplash_r.png" target="_blank"><img src="./static/figures/samples/Ivan%20Aleksic-PDRFeeDniCk-unsplash_r.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Ivan%20Aleksic-PDRFeeDniCk-unsplash_s.png" target="_blank"><img src="./static/figures/samples/Ivan%20Aleksic-PDRFeeDniCk-unsplash_s.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Ivan%20Aleksic-PDRFeeDniCk-unsplash_n.png" target="_blank"><img src="./static/figures/samples/Ivan%20Aleksic-PDRFeeDniCk-unsplash_n.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Kenny%20Eliason-b_GtasP517U-unsplash_input.png" target="_blank"><img src="./static/figures/samples/Kenny%20Eliason-b_GtasP517U-unsplash_input.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Kenny%20Eliason-b_GtasP517U-unsplash_r.png" target="_blank"><img src="./static/figures/samples/Kenny%20Eliason-b_GtasP517U-unsplash_r.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Kenny%20Eliason-b_GtasP517U-unsplash_s.png" target="_blank"><img src="./static/figures/samples/Kenny%20Eliason-b_GtasP517U-unsplash_s.png" alt="Image"></a></div>
+            <div class="carousel-image"><a href="./static/figures/samples/Kenny%20Eliason-b_GtasP517U-unsplash_n.png" target="_blank"><img src="./static/figures/samples/Kenny%20Eliason-b_GtasP517U-unsplash_n.png" alt="Image"></a></div>
+        </div>
+        <div class="dot-container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+<!--        <div class="caption-container" id="carousel-caption3"> 123 </div>-->
+        <div class="content has-text-justified" style="width: 100%; margin-bottom: 0;">
+             <p style="font-size: 0.75em;">Image source:
+                    <a href="https://unsplash.com/photos/brown-wooden-chair-lot-inside-room-C4G18Paw0d4" target="_blank" style="text-decoration: none">
+                     Ion Fet</a>,
+                    <a href="https://unsplash.com/photos/brown-wooden-table-and-chairs-PDRFeeDniCk" target="_blank" style="text-decoration: none">
+                        Ivan Aleksic</a>,
+                    <a href="https://unsplash.com/photos/photography-of-bedroom-b_GtasP517U" target="_blank" style="text-decoration: none">
+                        Kenny Eliason</a>
+                (Unsplash)
+             </p>
+        </div>
+    </div>
+
+    <script>
+        function initCarousel(carouselId, interval) {
+            let slideIndex = 0;
+            const carousel = document.getElementById(carouselId);
+            const slides = carousel.querySelectorAll('.carousel-image');
+            const dots = carousel.querySelectorAll('.dot');
+            let autoplay = document.getElementById('autoplay');
+            let autoplayEnabled = autoplay.checked;
+            let autoplayTimeout;
+
+            function showSlides() {
+                if (!autoplayEnabled) return;
+
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = 'none';
+                }
+                slideIndex++;
+                if (slideIndex > slides.length / 4) {
+                    slideIndex = 1;
+                }
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(' active', '');
+                }
+                for (let i = (slideIndex - 1) * 4; i < slideIndex * 4; i++) {
+                    slides[i].style.display = 'block';
+                }
+                dots[slideIndex - 1].className += ' active';
+
+                autoplayTimeout = setTimeout(showSlides, interval);
+            }
+
+            function currentSlide(n) {
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = 'none';
+                }
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(' active', '');
+                }
+                for (let i = (n - 1) * 4; i < n * 4; i++) {
+                    slides[i].style.display = 'block';
+                }
+                dots[n - 1].className += ' active';
+                slideIndex = n;
+                if (autoplayEnabled) {
+                    clearTimeout(autoplayTimeout);
+                    autoplayTimeout = setTimeout(showSlides, interval);
+                }
+            }
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => currentSlide(index + 1));
+            });
+
+            autoplay.addEventListener('change', () => {
+                autoplayEnabled = autoplay.checked;
+                if (autoplayEnabled) {
+                    showSlides();
+                } else {
+                    clearTimeout(autoplayTimeout);
+                }
+            });
+
+            showSlides();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initCarousel('carousel1', 3000); // Initialize first carousel with 3-second interval
+            initCarousel('carousel2', 3000); // Initialize second carousel with 3-second interval
+            initCarousel('carousel3', 3000); // Initialize second carousel with 3-second interval
+        });
+    </script>
+</body>
+</html>

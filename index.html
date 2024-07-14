@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="IntrinsicDiffusion: Joint Intrinsic Layers from Latent Diffusion Models">
+  <meta name="keywords" content="intrinsic image decomposition, diffusion model, multi-task learning, surface normal estimation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IntrinsicDiffusion: Joint Intrinsic Layers from Latent Diffusion Models</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/figures/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">IntrinsicDiffusion: Joint Intrinsic Layers from Latent Diffusion Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jundanluo.github.io/">Jundan Luo</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.duygu-ceylan.com/">Duygu Ceylan</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://gorokee.github.io/jsyoon/">Jae Shin Yoon</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://nxzhao.com/">Nanxuan Zhao</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://julienphilip.com/">Julien Philip</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://afruehstueck.github.io/">Anna Frühstück</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://wbli.me/">Wenbin Li</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://richardt.name/">Christian Richardt</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://tuanfeng.github.io/">Tuanfeng Y. Wang</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Bath,</span>
+            <span class="author-block"><sup>2</sup>Adobe Research,</span>
+            <span class="author-block"><sup>3</sup>Meta</span>
+          </div>
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>*</sup>Part of this work was done while the first author was an intern at Adobe.</span>
+          </div>
+
+
+          <br>
+          <div class="is-size-4 publication-venue">
+            <span>SIGGRAPH 2024</span>
+          </div>
+          <br>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://doi.org/10.1145/3641519.3657472"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper (coming soon)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href=""-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="fab fa-youtube"></i>-->
+<!--                  </span>-->
+<!--                  <span>Video</span>-->
+<!--                </a>-->
+<!--              </span>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+<!--              <span class="link-block">-->
+<!--                <a href=""-->
+<!--                   class="external-link button is-normal is-rounded is-dark">-->
+<!--                  <span class="icon">-->
+<!--                      <i class="far fa-images"></i>-->
+<!--                  </span>-->
+<!--                  <span>Data</span>-->
+<!--                  </a>-->
+<!--              </span>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+        <!-- Teaser image. -->
+    <div class="column">
+            <img src="./static/figures/teaser.jpg"
+                 class="teaser-image"
+                 alt="Teaser image."/>
+            <h2 class="subsubtitle has-text-left">
+              Image source:
+                    <a href="https://stock.adobe.com/uk/images/large-luxury-modern-minimal-bright-interiors-room-mockup-illustration-3d-rendering/362839768" target="_blank">
+                      3DarcaStudio, stock.adobe.com</a>.
+            </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Reasoning about the intrinsic properties of an image, such as albedo, illumination, and surface geometry, is a long-standing problem with many applications in image editing and compositing.
+            Existing solutions to this ill-posed problem either heavily rely on manually designed priors or learn priors from limited datasets that lack diversity. Hence, they fall short in generalizing to in-the-wild test scenarios.
+            In this paper, we show that a large-scale text-to-image generation model trained on a massive amount of visual data can implicitly learn intrinsic image priors.
+            In particular, we introduce a novel conditioning mechanism built on top of a pre-trained foundational image generation model to jointly predict multiple intrinsic modalities from an input image.
+            We demonstrate that predicting different modalities in a collaborative manner improves the overall quality.
+            This design also enables mixing datasets with annotations of only a subset of the modalities during training, contributing to the generalizability of our approach.
+            Our method achieves state-of-the-art performance in intrinsic image decomposition, both qualitatively and quantitatively.
+            We also demonstrate downstream image editing applications, such as relighting and retexturing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pipeline. -->
+<!--<section class="section">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="columns is-centered">-->
+<!--      <div class="column is-full-width">-->
+<!--        <h2 class="title is-3">Overview</h2>-->
+<!--        <br/>-->
+<!--        <div class="columns is-vcentered interpolation-panel">-->
+<!--            <img src="./static/figures/pipeline.png"-->
+<!--                 class="overview-image"-->
+<!--                 alt="Overview."/>-->
+<!--        </div>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            Overview of our pipeline.-->
+<!--            Given an input image, we extract image features using a conditional image encoder with residual blocks.-->
+<!--            The image features are projected to domain-specific conditional vectors using SwinV2 [Liu et al. 2022] blocks for each intrinsic modality, i.e., albedo, shading, and surface normal.-->
+<!--            The generative diffusion model with a ControlNet [Zhang et al. 2023] is trained to generate different intrinsic modalities, and acts as a function of the dedicated prompt and conditional vectors.-->
+<!--            Image source: Interior Design, stock.adobe.com.-->
+<!--          </p>-->
+<!--        </div>-->
+<!--        <br/>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--/ Pipeline. -->
+
+
+<!-- Carousel. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results for 1K images</h2>
+        <!-- Embedded HTML -->
+        <div class="embedded-html-slideshow">
+          <iframe id="embeddedSlideShow" src="carousel.html" width="100%" height="900pt" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Carousel. -->
+
+
+<!-- HDR adjustment. -->
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">HDR reconstruction and brightness adjustment</h2>
+
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+          <p>
+            Our model enables high dynamic range adjustment due to
+            the effective separation in the saturated region and recovery
+            of the lost albedo information.
+            Image source:
+            <a href="http://hdrdb.com/indoor-spatially-varying/" target="_blank">
+            Laval Indoor HDR Dataset
+            </a>(top),
+            and
+            <a href="http://opensurfaces.cs.cornell.edu/publications/intrinsic/" target="_blank">
+            IIW benchmark
+            </a>(bottom).
+          </p>
+        </div>
+        <!-- scene 10 -->
+        <div class="columns is-fixed-top interpolation-panel">
+          <div class="column has-text-centered">
+            <img src="./static/figures/hdr_brightness/scene10/input.jpg"
+                 class="interpolation-image"
+                 alt="Given input image."/>
+            <p>Given input image</p>
+          </div>
+          <div class="column interpolation-video-column" data-interp-base="./static/figures/hdr_brightness/scene10"
+               data-wrapper-id="interpolation-image-wrapper-1"
+               data-slider-id="interpolation-slider-1">
+            <div id="interpolation-image-wrapper-1">
+              Loading...
+            </div>
+            <div class="column has-text-centered">
+              <input class="slider is-large is-info"
+                   id="interpolation-slider-1"
+                   step="1" min="0" max="99" value="0" type="range">
+              <p>Reconstruction (colorful shading)</p>
+            </div>
+          </div>
+          <div class="column interpolation-video-column" data-interp-base="./static/figures/hdr_brightness/scene10_gray"
+               data-wrapper-id="interpolation-image-wrapper-1-1"
+               data-slider-id="interpolation-slider-1-1">
+            <div id="interpolation-image-wrapper-1-1">
+              Loading...
+            </div>
+            <div class="column has-text-centered">
+              <input class="slider is-large is-info"
+                   id="interpolation-slider-1-1"
+                   step="1" min="0" max="99" value="0" type="range">
+              <p>Reconstruction (gray shading)</p>
+            </div>
+          </div>
+        </div>
+        <!-- scene 78729 -->
+        <div class="columns is-fixed-top interpolation-panel">
+          <div class="column has-text-centered">
+            <img src="./static/figures/hdr_brightness/78729/input.jpg"
+                 class="interpolation-image"
+                 alt="Given input image."/>
+            <p>Given input image</p>
+          </div>
+          <div class="column interpolation-video-column" data-interp-base="./static/figures/hdr_brightness/78729"
+               data-wrapper-id="interpolation-image-wrapper-2"
+               data-slider-id="interpolation-slider-2">
+            <div id="interpolation-image-wrapper-2">
+              Loading...
+            </div>
+            <div class="column has-text-centered">
+              <input class="slider is-large is-info"
+                   id="interpolation-slider-2"
+                   step="1" min="0" max="99" value="0" type="range">
+              <p>Reconstruction (colorful shading)</p>
+            </div>
+          </div>
+          <div class="column interpolation-video-column" data-interp-base="./static/figures/hdr_brightness/78729_gray"
+               data-wrapper-id="interpolation-image-wrapper-2-1"
+               data-slider-id="interpolation-slider-2-1">
+            <div id="interpolation-image-wrapper-2-1">
+              Loading...
+            </div>
+            <div class="column has-text-centered">
+              <input class="slider is-large is-info"
+                   id="interpolation-slider-2-1"
+                   step="1" min="0" max="99" value="0" type="range">
+              <p>Reconstruction (gray shading)</p>
+            </div>
+          </div>
+        </div>
+
+        <!--/ Interpolating. -->
+      </div>
+    </div>
+    <!--/ Animation. -->
+  </div>
+</section>
+<!--/ HDR adjustment. -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Comparison. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Comparison on the IIW benchmark</h2>
+        <br/>
+        <div class="content has-text-justified">
+          <p>
+            For each sample, albedo (top) and shading (below) images are shown in the linear RGB space.
+            Our surface normal predictions are shown in the first column of each second row.
+          </p>
+        </div>
+        <!-- Embedded HTML -->
+        <div class="embedded-html-visual-comparison">
+          <iframe id="embeddedVisualComparison" src="static/comparison/index.html" width="110%" height="1600pt" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Comparison. -->
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{Luo2024IntrinsicDiffusion,
+      author    = {Luo, Jundan and Ceylan, Duygu and Yoon, Jae Shin and Zhao, Nanxuan and Philip, Julien and Fr{\"u}hst{\"u}ck, Anna and Li, Wenbin and Richardt, Christian and Wang, Tuanfeng Y.},
+      title     = {{IntrinsicDiffusion}: Joint Intrinsic Layers from Latent Diffusion Models},
+      booktitle = {SIGGRAPH 2024 Conference Papers},
+      year      = {2024},
+      doi       = {10.1145/3641519.3657472},
+      url       = {https://intrinsicdiffusion.github.io},
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+<!--    <div class="content has-text-centered">-->
+<!--      <a class="icon-link"-->
+<!--         href="./static/videos/nerfies_paper.pdf">-->
+<!--        <i class="fas fa-file-pdf"></i>-->
+<!--      </a>-->
+<!--      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>-->
+<!--        <i class="fab fa-github"></i>-->
+<!--      </a>-->
+<!--    </div>-->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This website is adapted from <a href="https://nerfies.github.io/">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

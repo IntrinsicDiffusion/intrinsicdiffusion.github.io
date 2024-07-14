@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intrinsic image comparison</title>
+    <style>
+        body {
+          font-family: 'Noto Sans', sans-serif;
+          color: #555;
+        }
+    </style>
+</head>
+<body>
+    <table style="table-layout: fixed;">
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>Index</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>Input / our pred. normal</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>Ours</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>CRefNet</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>Ordinal Shading</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>NIID-Net</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>PIE-Net</p>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>771</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/input/771.png">
+            <img height="106" src="./images/input/771.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/771_r.png">
+            <img height="106" src="./images/ours/771_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/771_r.jpg">
+            <img height="106" src="./images/crefnet/771_r.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/771_r.png">
+            <img height="106" src="./images/careaga_2023/771_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/771_R.png">
+            <img height="106" src="./images/luo_2020/771_R.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/771_pred_alb.png">
+            <img height="106" src="./images/das_2022/771_pred_alb.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top"></td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/771_n.png">
+            <img height="106" src="./images/ours/771_n.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/771_s.png">
+            <img height="106" src="./images/ours/771_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/771_s.jpg">
+            <img height="106" src="./images/crefnet/771_s.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/771_s.png">
+            <img height="106" src="./images/careaga_2023/771_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/771_S.png">
+            <img height="106" src="./images/luo_2020/771_S.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/771_pred_shd.png">
+            <img height="106" src="./images/das_2022/771_pred_shd.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>102613</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/input/102613.png">
+            <img height="106" src="./images/input/102613.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/102613_r.png">
+            <img height="106" src="./images/ours/102613_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/102613_r.jpg">
+            <img height="106" src="./images/crefnet/102613_r.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/102613_r.png">
+            <img height="106" src="./images/careaga_2023/102613_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/102613_R.png">
+            <img height="106" src="./images/luo_2020/102613_R.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/102613_pred_alb.png">
+            <img height="106" src="./images/das_2022/102613_pred_alb.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top"></td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/102613_n.png">
+            <img height="106" src="./images/ours/102613_n.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/102613_s.png">
+            <img height="106" src="./images/ours/102613_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/102613_s.jpg">
+            <img height="106" src="./images/crefnet/102613_s.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/102613_s.png">
+            <img height="106" src="./images/careaga_2023/102613_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/102613_S.png">
+            <img height="106" src="./images/luo_2020/102613_S.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/102613_pred_shd.png">
+            <img height="106" src="./images/das_2022/102613_pred_shd.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>4136</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/input/4136.png">
+            <img height="106" src="./images/input/4136.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/4136_r.png">
+            <img height="106" src="./images/ours/4136_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/4136_r.jpg">
+            <img height="106" src="./images/crefnet/4136_r.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/4136_r.png">
+            <img height="106" src="./images/careaga_2023/4136_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/4136_R.png">
+            <img height="106" src="./images/luo_2020/4136_R.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/4136_pred_alb.png">
+            <img height="106" src="./images/das_2022/4136_pred_alb.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top"></td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+            <a href="./images/ours/4136_n.png">
+                <img height="106" src="./images/ours/4136_n.png" width="160">
+            </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/4136_s.png">
+            <img height="106" src="./images/ours/4136_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/4136_s.jpg">
+            <img height="106" src="./images/crefnet/4136_s.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/4136_s.png">
+            <img height="106" src="./images/careaga_2023/4136_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/4136_S.png">
+            <img height="106" src="./images/luo_2020/4136_S.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/4136_pred_shd.png">
+            <img height="106" src="./images/das_2022/4136_pred_shd.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>78729</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/input/78729.png">
+            <img height="120" src="./images/input/78729.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/78729_r.png">
+            <img height="120" src="./images/ours/78729_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/78729_r.jpg">
+            <img height="120" src="./images/crefnet/78729_r.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/78729_r.png">
+            <img height="120" src="./images/careaga_2023/78729_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/78729_R.png">
+            <img height="120" src="./images/luo_2020/78729_R.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/78729_pred_alb.png">
+            <img height="120" src="./images/das_2022/78729_pred_alb.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top"></td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+            <a href="./images/ours/78729_n.png">
+                <img height="120" src="./images/ours/78729_n.png" width="160">
+            </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/78729_s.png">
+            <img height="120" src="./images/ours/78729_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/78729_s.jpg">
+            <img height="120" src="./images/crefnet/78729_s.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/78729_s.png">
+            <img height="120" src="./images/careaga_2023/78729_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/78729_S.png">
+            <img height="120" src="./images/luo_2020/78729_S.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/78729_pred_shd.png">
+            <img height="120" src="./images/das_2022/78729_pred_shd.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>Index</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+           <p>Input / our pred. normal</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>Ours</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>CRefNet</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>Ordinal Shading</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>NIID-Net</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>PIE-Net</p>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>9635</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/input/9635.png">
+            <img height="120" src="./images/input/9635.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/9635_r.png">
+            <img height="120" src="./images/ours/9635_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/9635_r.jpg">
+            <img height="120" src="./images/crefnet/9635_r.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/9635_r.png">
+            <img height="120" src="./images/careaga_2023/9635_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/9635_R.png">
+            <img height="120" src="./images/luo_2020/9635_R.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/9635_pred_alb.png">
+            <img height="120" src="./images/das_2022/9635_pred_alb.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top"></td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+            <a href="./images/ours/9635_n.png">
+                <img height="120" src="./images/ours/9635_n.png" width="160">
+            </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/9635_s.png">
+            <img height="120" src="./images/ours/9635_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/9635_s.jpg">
+            <img height="120" src="./images/crefnet/9635_s.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/9635_s.png">
+            <img height="120" src="./images/careaga_2023/9635_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/9635_S.png">
+            <img height="120" src="./images/luo_2020/9635_S.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/9635_pred_shd.png">
+            <img height="120" src="./images/das_2022/9635_pred_shd.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <p>7940</p>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/input/7940.png">
+            <img height="106" src="./images/input/7940.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/7940_r.png">
+            <img height="106" src="./images/ours/7940_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/7940_r.jpg">
+            <img height="106" src="./images/crefnet/7940_r.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/7940_r.png">
+            <img height="106" src="./images/careaga_2023/7940_r.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/7940_R.png">
+            <img height="106" src="./images/luo_2020/7940_R.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/7940_pred_alb.png">
+            <img height="106" src="./images/das_2022/7940_pred_alb.png" width="160">
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td align="center" style="word-wrap: break-word;" valign="top"></td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+            <a href="./images/ours/7940_n.png">
+                <img height="106" src="./images/ours/7940_n.png" width="160">
+            </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/ours/7940_s.png">
+            <img height="106" src="./images/ours/7940_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/crefnet/7940_s.jpg">
+            <img height="106" src="./images/crefnet/7940_s.jpg" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/careaga_2023/7940_s.png">
+            <img height="106" src="./images/careaga_2023/7940_s.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/luo_2020/7940_S.png">
+            <img height="106" src="./images/luo_2020/7940_S.png" width="160">
+          </a>
+        </td>
+        <td align="center" style="word-wrap: break-word;" valign="top">
+          <a href="./images/das_2022/7940_pred_shd.png">
+            <img height="106" src="./images/das_2022/7940_pred_shd.png" width="160">
+          </a>
+        </td>
+      </tr>
+    </table>
+</body>
+</html>
